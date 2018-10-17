@@ -1,0 +1,15 @@
+{
+    "require": {
+        "latitude/latitude": "^3.1",
+        "nilportugues/sql-query-builder": "^1.6",
+        "usmanhalalit/pixie": "^2.0",
+        "clancats/hydrahon": "^1.1",
+        "illuminate/database": "^5.7",
+        "symfony/orm-pack": "^1.0",
+        "doctrine/orm": "^2.6",
+        "cakephp/orm": "^3.6"
+    },
+    "require-dev": {
+        "symfony/maker-bundle": "^1.8"
+    }
+}
