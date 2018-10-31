@@ -12,6 +12,7 @@
         "vlucas/phpdotenv": "^2.5"
     },
     "require-dev": {
-        "symfony/maker-bundle": "^1.8"
+        "symfony/maker-bundle": "^1.8",
+        "symfony/var-dumper": "^4.1"
     }
 }
