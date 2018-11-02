@@ -5,6 +5,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use Example\Hydrahon\Model;
 use Example\Hydrahon\Post;
+use Example\Hydrahon\PostStatus;
 use Example\Util\DbConfig;
 
 function main()
@@ -27,7 +28,7 @@ function main()
     $post->authorId = $author->id;
     $post->title = 'First Post';
     $post->content = 'Hello, everyone!';
-    $post->status = Post::STATUS_PUBLIC;
+    $post->status = new PostStatus(PostStatus::PUBLIC);
     $post->save();
 
     // 記事を取得

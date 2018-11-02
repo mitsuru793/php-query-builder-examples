@@ -6,9 +6,6 @@ namespace Example\Hydrahon;
 final class Post extends Model
 {
     protected const TABLE = 'posts';
-    public const STATUS_PUBLIC = 1;
-    public const STATUS_DRAFT = 0;
-    public const STATUS_DELETED = -1;
 
     /** @var int */
     public $authorId;
@@ -19,7 +16,7 @@ final class Post extends Model
     /** @var string */
     public $content;
 
-    /** @var int */
+    /** @var PostStatus */
     public $status;
 
     public function author(): User
@@ -33,7 +30,7 @@ final class Post extends Model
                 'author_id' => (int)$this->authorId,
                 'title' => $this->title,
                 'content' => $this->content,
-                'status' => (int)$this->status,
+                'status' => $this->status->value(),
             ];
     }
 
@@ -43,7 +40,7 @@ final class Post extends Model
         $this->authorId = (int)$fields['author_id'];
         $this->title = $fields['title'];
         $this->content = $fields['content'];
-        $this->status = $fields['status'];
+        $this->status = new PostStatus((int)$fields['status']);
         return $this;
     }
 }
