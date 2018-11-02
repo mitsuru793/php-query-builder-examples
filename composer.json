@@ -14,5 +14,10 @@
     "require-dev": {
         "symfony/maker-bundle": "^1.8",
         "symfony/var-dumper": "^4.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Example\\": "src/"
+        }
     }
 }
