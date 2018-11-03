@@ -20,5 +20,10 @@
         "psr-4": {
             "Example\\": "src/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Helper\\": "tests/Helper"
+        }
     }
 }
