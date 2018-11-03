@@ -37,13 +37,7 @@ abstract class Model
     public static function findByIds(array $ids)
     {
         $rows = self::select()->where('id', 'in', $ids)->get();
-        $models = [];
-        foreach ($rows as $row) {
-            $model = new static();
-            $model->fill($row);
-            $models[] = $model;
-        }
-        return $models;
+        return self::build($rows);
     }
 
     public function toArray(): array
@@ -72,6 +66,16 @@ abstract class Model
     public function save()
     {
         return self::query()->insert($this->toArray())->execute();
+    }
+
+    protected static function build(array $rows)
+    {
+        foreach ($rows as $row) {
+            $model = new static();
+            $model->fill($row);
+            $models[] = $model;
+        }
+        return $models;
     }
 
     protected static function select($fields = null): Select

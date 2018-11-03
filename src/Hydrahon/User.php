@@ -13,13 +13,7 @@ final class User extends Model
     public static function findByName(string $name): array
     {
         $rows = self::select()->where('name', $name)->get();
-        $users = [];
-        foreach ($rows as $row) {
-            $user = new self();
-            $user->fill($row);
-            $users[] = $user;
-        }
-        return $users;
+        return self::build($rows);
     }
 
     public function toArray(): array
