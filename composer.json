@@ -1,4 +1,9 @@
 {
+    "scripts": {
+        "test": [
+            "./vendor/bin/phpunit"
+        ]
+    },
     "require": {
         "ext-pdo": "*",
         "latitude/latitude": "^3.1",
