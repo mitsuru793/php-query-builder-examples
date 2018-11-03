@@ -31,6 +31,21 @@ abstract class Model
         return $model->fill($row);
     }
 
+    /**
+     * @return static[]
+     */
+    public static function findByIds(array $ids)
+    {
+        $rows = self::select()->where('id', 'in', $ids)->get();
+        $models = [];
+        foreach ($rows as $row) {
+            $model = new static();
+            $model->fill($row);
+            $models[] = $model;
+        }
+        return $models;
+    }
+
     public function toArray(): array
     {
         if ($this->id > 0) {
